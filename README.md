@@ -1,8 +1,8 @@
 # read-transform-write
 
 An easy-to-use utility to transform files with a single function.<br>
-It uses `fs.readFile` and `fs.writeFile` under the hood and throws an error if something goes wrong.
-
+It uses `fs.readFile` and `fs.writeFile` under the hood and throws an error if something goes wrong.<br>
+The `encoding` is set to `utf8`. If you need something else, please file an issue.
 
 <img alt="TravisCI" src="https://travis-ci.org/rofrischmann/read-transform-write.svg?branch=master"> <a href="https://codeclimate.com/github/rofrischmann/read-transform-write/coverage"><img alt="Test Coverage" src="https://codeclimate.com/github/rofrischmann/read-transform-write/badges/coverage.svg"></a> <img alt="npm version" src="https://badge.fury.io/js/read-transform-write.svg"> <img alt="npm downloads" src="https://img.shields.io/npm/dm/read-transform-write.svg"> <img alt="dependencies" src="https://david-dm.org/rofrischmann/read-transform-write.svg">
 

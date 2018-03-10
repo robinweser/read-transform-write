@@ -19,7 +19,6 @@
   ],
   "jest": {
     "testPathIgnorePatterns": [
-      "__output__",
       "__assets__"
     ]
   },

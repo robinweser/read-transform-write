@@ -4,7 +4,7 @@ import { unlinkSync, existsSync, readFileSync } from 'fs'
 import transformFile from '../index'
 
 const inputPath = join(__dirname, '__assets__', 'input.txt')
-const outputPath = join(__dirname, '__output__', 'output.txt')
+const outputPath = join(__dirname, '__assets__', 'output.txt')
 
 afterEach(() => existsSync(outputPath) && unlinkSync(outputPath))
 
