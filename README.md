@@ -44,7 +44,7 @@ type Callback {
 import { join } from 'path'
 import transformFile from 'read-transform-write'
 
-const tansform = data => write => write(
+const transform = data => write => write(
   data
     .split('\n')
     .map(parseInt)
