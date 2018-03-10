@@ -29,7 +29,7 @@
     "check": "yarn format && yarn lint && yarn test:coverage",
     "format": "prettier --write \"src/**/*.js\"",
     "lint": "eslint src/**/*.js",
-    "release": "git pull --rebase && yarn setup && npm publish",
+    "release": "git pull --rebase && yarn setup && yarn run check && npm publish",
     "test": "cross-env BABEL_ENV=commonjs jest",
     "test:coverage": "cross-env BABEL_ENV=commonjs jest --coverage",
     "watch": "yarn test -- --watch",
