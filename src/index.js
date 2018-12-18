@@ -1,11 +1,6 @@
 import { readFile, writeFile } from 'fs'
 
-export default function transformFile(
-  inputPath,
-  outputPath,
-  transform,
-  callback
-) {
+export default function transformFile(inputPath, transform, callback) {
   readFile(inputPath, 'utf8', (readError, input) => {
     if (readError) {
       throw new Error(
@@ -13,7 +8,7 @@ export default function transformFile(
       )
     }
 
-    transform(input)(output =>
+    transform(input)((outputPath, output) =>
       writeFile(outputPath, output, 'utf8', writeError => {
         if (writeError) {
           throw new Error(

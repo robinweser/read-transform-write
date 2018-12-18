@@ -25,8 +25,7 @@ npm i --save read-transform-write
 | Parameter | Type | Description |
 | --- | --- | --- |
 | inputPath | (*string*) | The absolute path to the input file. |
-| outputPath | (*string*) | An absolute output file path. |
-| transform | (*Function*) | The transformation method.<br>It receives the input data and returns method receving a write-method that must be called with the transformed data. |
+| transform | (*Function*) | The transformation method.<br>It receives the input data and returns method receving a write-method that must be called with the transformed data and a output path. |
 | callback | (*Function?*) | An optional callback that receives an object with the callback shape. |
 
 #### Callback Shape
@@ -44,17 +43,20 @@ type Callback {
 import { join } from 'path'
 import transformFile from 'read-transform-write'
 
+const input = join(__dirname, 'input.txt')
+const output = join(__dirname, 'output.txt')
+
 const transform = data => write => write(
+  output,
   data
     .split('\n')
-    .map(parseInt)
+    .map(val => parseInt(val, 10))
     .map(Math.sqrt)
     .join('\n')
 )
 
 transformFile(
-  join(__dirname, 'input.txt'),
-  join(__dirname, 'output.txt'),
+  input,
   transform,
   ({ output, outputPath }) => {
     console.log(`Written ${output} to ${outputPath}.`)

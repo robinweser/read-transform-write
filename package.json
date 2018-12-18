@@ -1,6 +1,6 @@
 {
   "name": "read-transform-write",
-  "version": "1.0.1",
+  "version": "2.0.0",
   "description": "Transform files with a single function",
   "main": "lib/index.js",
   "module": "es/index.js",
