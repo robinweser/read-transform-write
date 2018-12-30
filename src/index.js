@@ -8,7 +8,8 @@ export default function transformFile(inputPath, transform, callback) {
       )
     }
 
-    transform(input)((outputPath, output) =>
+    let count = 0
+    transform(input)((outputPath, output, amount = 1) =>
       writeFile(outputPath, output, 'utf8', writeError => {
         if (writeError) {
           throw new Error(
@@ -16,12 +17,15 @@ export default function transformFile(inputPath, transform, callback) {
           )
         }
 
+        count++
+
         if (callback) {
           callback({
             input,
             inputPath,
             output,
             outputPath,
+            isDone: amount === count,
           })
         }
       })
